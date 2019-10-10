@@ -3,13 +3,14 @@ package first_poject_jsf;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
-
+@ApplicationScoped
 @ManagedBean(name = "pessoaBean")
-@SessionScoped
+
 public class PessoaBean {
 	
 	private String nome;
