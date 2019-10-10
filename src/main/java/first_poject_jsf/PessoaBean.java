@@ -8,7 +8,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
-@ApplicationScoped
+import javax.faces.component.html.HtmlCommandButton;
+
+import org.w3c.dom.html.HTMLButtonElement;
+@ViewScoped
 @ManagedBean(name = "pessoaBean")
 
 public class PessoaBean {
@@ -17,6 +20,7 @@ public class PessoaBean {
 	private String sobreNome;
 	private String nomeCompleto;
 	private List<String> nomes = new ArrayList<String>();
+	private HtmlCommandButton commandButton;
 	
 	public String getNome() {
 		return nome;
@@ -45,6 +49,11 @@ public class PessoaBean {
 	public void concatenarNomes() {
 		this.nomeCompleto = this.nome + " " + this.sobreNome;
 		nomes.add(this.nomeCompleto);
+		
+		//Disabilitar Botao
+		if(nomes.size() > 3) {
+			commandButton.setDisabled(true);
+		}
 	}
 	
 	public List<String> getNomes() {
@@ -53,5 +62,13 @@ public class PessoaBean {
 	
 	public void setNomes(List<String> nomes) {
 		this.nomes = nomes;
+	}
+	
+	public void setCommandButton(HtmlCommandButton commandButton) {
+		this.commandButton = commandButton;
+	}
+	
+	public HtmlCommandButton getCommandButton() {
+		return commandButton;
 	}
 }
