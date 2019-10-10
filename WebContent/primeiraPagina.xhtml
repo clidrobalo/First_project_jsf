@@ -35,6 +35,14 @@
 		<br/>
 		<h:commandButton value="Gerar nome completo" action="#{pessoaBean.concatenarNomes}"/>
 		
+		<br></br>
+		<br></br>
+		<h:dataTable value="#{pessoaBean.nomes}" var="nome">
+			<h:column>
+				<h:outputText value="#{nome}"/>
+			</h:column>
+		</h:dataTable>
+		
 	</h:form>
 </h:body>
 </html>
