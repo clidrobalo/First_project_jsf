@@ -12,7 +12,7 @@ import javax.faces.component.html.HtmlCommandButton;
 
 import org.w3c.dom.html.HTMLButtonElement;
 
-@ViewScoped
+@SessionScoped
 @ManagedBean(name = "pessoaBean")
 
 public class PessoaBean {
@@ -47,14 +47,16 @@ public class PessoaBean {
 		this.nomeCompleto =  nomeCompleto;
 	}
 	
-	public void concatenarNomes() {
+	public String concatenarNomes() {
 		this.nomeCompleto = this.nome + " " + this.sobreNome;
 		nomes.add(this.nomeCompleto);
 		
 		//Disabilitar Botao
 		if(nomes.size() > 3) {
 			commandButton.setDisabled(true);
+			return "index";
 		}
+		return null;
 	}
 	
 	public List<String> getNomes() {
@@ -71,5 +73,10 @@ public class PessoaBean {
 	
 	public HtmlCommandButton getCommandButton() {
 		return commandButton;
+	}
+	
+	public void limparLista() {
+		nomes.clear();
+		commandButton.setDisabled(false);
 	}
 }
