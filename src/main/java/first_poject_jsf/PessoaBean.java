@@ -1,8 +1,8 @@
 package first_poject_jsf;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -11,6 +11,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.component.html.HtmlCommandButton;
 
 import org.w3c.dom.html.HTMLButtonElement;
+
 @ViewScoped
 @ManagedBean(name = "pessoaBean")
 
